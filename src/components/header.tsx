@@ -6,7 +6,7 @@ export default function Header() {
       <Link href="/">
         <a className="">
           <h1 className="text-2xl tracking-wide font-black text-gray-700">
-            weather <span class="text-pink-500">alpha</span>
+            weather <span className="text-pink-500">alpha</span>
           </h1>
         </a>
       </Link>

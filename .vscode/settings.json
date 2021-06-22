@@ -4,5 +4,12 @@
     "other": true,
     "comments": false,
     "strings": true
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
   }
 }

@@ -11,7 +11,12 @@ export default function Home() {
 
       <Header />
 
-      <div></div>
+      <div className="w-11/12 mx-auto grid grid-cols-3 gap-6">
+        <div className="relative p-2 rounded-md border">
+          <span className="absolute top-1 right-1">AccuWeather</span>
+          <div></div>
+        </div>
+      </div>
     </div>
   );
 }
