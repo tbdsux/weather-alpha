@@ -1,8 +1,12 @@
 import Head from 'next/head';
-
+import useSWR from 'swr';
 import Header from '../components/header';
+import CurrentWeather from '../modules/weather/current';
+import { GEOIPDataProps } from '../types/geo';
 
 export default function Home() {
+  const { data } = useSWR<GEOIPDataProps>('https://my-ip.theboringdude.workers.dev/');
+
   return (
     <div>
       <Head>
@@ -11,12 +15,7 @@ export default function Home() {
 
       <Header />
 
-      <div className="w-11/12 mx-auto grid grid-cols-3 gap-6">
-        <div className="relative p-2 rounded-md border">
-          <span className="absolute top-1 right-1">AccuWeather</span>
-          <div></div>
-        </div>
-      </div>
+      <CurrentWeather geo={data?.geo} />
     </div>
   );
 }
