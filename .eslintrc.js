@@ -8,9 +8,6 @@ module.exports = {
     ecmaVersion: 8
   },
   extends: ['eslint:recommended'],
-  rules: {
-    'no-console': 'off'
-  },
   overrides: [
     {
       files: ['src/**/*.ts', 'src/**/*.tsx'],

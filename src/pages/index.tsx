@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Weather Alpha - Multi Weather</title>
+        <title>Weather Alpha</title>
       </Head>
 
       <Header />

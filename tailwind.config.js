@@ -6,7 +6,7 @@ module.exports = {
   mode: 'jit',
   theme: {
     fontFamily: {
-      sans: ['Heebo', ...defaultTheme.fontFamily.sans]
+      sans: ['"Work Sans"', ...defaultTheme.fontFamily.sans]
     },
     extend: {}
   },

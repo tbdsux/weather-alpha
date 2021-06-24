@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="py-20 text-center">
+    <header className="pt-20 pb-12 text-center">
       <Link href="/">
         <a className="">
           <h1 className="text-2xl tracking-wide font-black text-gray-700">

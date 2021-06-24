@@ -14,7 +14,6 @@ const WeatherApi = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const finalUrl = joinString(url) + process.env.OPENWEATHER_API;
-  console.log(finalUrl);
   const q = await fetcher(finalUrl);
 
   if (!q) {
