@@ -24,7 +24,7 @@ const CurrentWeather = ({ geo }: CurrentWeatherProps) => {
   if (!data) return <LoadingComponent />;
 
   return (
-    <div className="p-8 border-2 border-pink-300 rounded-lg w-11/12 sm:max-w-2xl lg:max-w-3xl mx-auto">
+    <div className="p-8 border-2 border-pink-300 rounded-lg">
       <div>
         <h3 className="text-2xl font-extrabold tracking-wide text-gray-700">
           <span className="text-pink-500">{data.name}</span>, {data.sys.country}

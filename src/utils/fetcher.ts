@@ -1,7 +1,8 @@
 /* a custom fetch function wrapper */
-const fetcher = async (url: string) => {
+const fetcher = async <T>(url: string): Promise<T> => {
   return await fetch(url)
     .then((r) => r.json())
+    .then((d: T) => d)
     .catch(() => undefined);
 };
 
