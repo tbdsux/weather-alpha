@@ -7,19 +7,24 @@ import { Geo } from '../../types/geo';
 import { KelvinToCelsius } from '../../utils/converter';
 
 type CurrentWeatherProps = {
-  geo: Geo;
+  geo?: Geo;
+  cityId?: number;
+  initialData?: CurrentWeatherResponseProps;
 };
 
-const CurrentWeather = ({ geo }: CurrentWeatherProps) => {
+const CurrentWeather = ({ geo, cityId, initialData }: CurrentWeatherProps) => {
+  const url = `https://api.openweathermap.org/data/2.5/weather?${
+    geo ? `lat=${geo.latitude}&lon=${geo.longitude}` : `id=${cityId}`
+  }&appid=`;
+
+  console.log(url);
+
   const { data } = useSWR<CurrentWeatherResponseProps>(
-    geo
-      ? `/api/weather?url=${encodeURIComponent(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${geo.latitude}&lon=${geo.longitude}&appid=`
-        )}`
-      : null
+    geo || cityId ? `/api/weather?url=${encodeURIComponent(url)}` : null,
+    { initialData }
   );
 
-  if (!geo) return <EmptyComponent />;
+  if (!geo && !cityId) return <EmptyComponent />;
 
   if (!data) return <LoadingComponent />;
 

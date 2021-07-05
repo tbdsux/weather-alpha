@@ -16,7 +16,7 @@ const SearchPlaceResult = ({ results, searching }: SearchPlaceResultProps) => {
     <ul className="p-6 border-2 border-pink-300 rounded-lg">
       {results.list.map((r, index) => (
         <li key={index}>
-          <Link href="/">
+          <Link href={`/places?cityId=${r.id}`}>
             <a className="flex items-center justify-between border hover:border-pink-300 px-3 rounded-lg my-2 hover:bg-pink-500 text-gray-800 hover:text-white">
               <p className="font-medium tracking-wide">
                 {r.name}, {r.sys.country}
