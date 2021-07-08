@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import useSWR from 'swr';
 import SearchPlace from '../components/search-place';
+import useDefaultPlace from '../hooks/useDefaultPlace';
+import useIP from '../hooks/useIP';
 import DefaultLayout from '../layouts/default';
 import SearchPlaceResult from '../modules/search/results';
 import CurrentWeather from '../modules/weather/current';
-import { GEOIPDataProps } from '../types/geo';
 import { SearchResultProps } from '../types/search';
 
 export default function Home() {
@@ -13,7 +13,8 @@ export default function Home() {
   const [searchResult, setSearchResults] = useState<SearchResultProps>(null);
 
   // get client user ip
-  const { data } = useSWR<GEOIPDataProps>('https://my-ip.theboringdude.workers.dev/');
+  const ip = useIP();
+  const { cityId } = useDefaultPlace();
 
   return (
     <DefaultLayout>
@@ -23,7 +24,7 @@ export default function Home() {
         {searchMode ? (
           <SearchPlaceResult results={searchResult} searching={searching} />
         ) : (
-          <CurrentWeather geo={data?.geo} />
+          <CurrentWeather geo={ip?.geo} cityId={Number(cityId)} />
         )}
       </div>
     </DefaultLayout>

@@ -14,10 +14,8 @@ type CurrentWeatherProps = {
 
 const CurrentWeather = ({ geo, cityId, initialData }: CurrentWeatherProps) => {
   const url = `https://api.openweathermap.org/data/2.5/weather?${
-    geo ? `lat=${geo.latitude}&lon=${geo.longitude}` : `id=${cityId}`
+    cityId ? `id=${cityId}` : geo ? `lat=${geo.latitude}&lon=${geo.longitude}` : ''
   }&appid=`;
-
-  console.log(url);
 
   const { data } = useSWR<CurrentWeatherResponseProps>(
     geo || cityId ? `/api/weather?url=${encodeURIComponent(url)}` : null,
